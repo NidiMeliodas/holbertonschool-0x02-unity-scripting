@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -53,6 +55,21 @@ public class PlayerController : MonoBehaviour
 		if (other.CompareTag("Goal"))
 		{
 			Debug.Log("You win!");
+		}
+	}
+
+	void Update()
+	{
+		if (health <= 0)
+		{
+			Debug.Log("Game Over!");
+
+			// Reload the current scene
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+			// Reset values — optional if you're using Start() to initialize them
+			health = 5;
+			score = 0;
 		}
 	}
 
