@@ -48,5 +48,12 @@ public class PlayerController : MonoBehaviour
 			health--;
 			Debug.Log("Health: " + health);
 		}
+
+		// Goal logic
+		if (other.CompareTag("Goal"))
+		{
+			Debug.Log("You win!");
+		}
 	}
+
 }
